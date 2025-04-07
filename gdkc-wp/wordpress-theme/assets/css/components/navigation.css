@@ -1,0 +1,311 @@
+/**
+ * Navigation Component Styles
+ *
+ * @package Good_Dogz_KC
+ * @subpackage Twenty_Twenty_Four_Child
+ * @since 1.0.0
+ */
+
+/* Navigation Variables */
+:root {
+    /* Animation */
+    --nav-transition: 0.3s ease-in-out;
+}
+
+/* Main Navigation Container */
+.gdkc-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
+}
+
+/* Logo Container */
+.gdkc-nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.gdkc-nav-logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+/* Navigation Links Container */
+.gdkc-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Navigation Link */
+.gdkc-nav-link {
+    color: var(--gdkc-blue);
+    text-decoration: none;
+    font-family: var(--font-heading-regular);
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color var(--nav-transition);
+}
+
+.gdkc-nav-link:hover {
+    color: var(--gdkc-teal);
+}
+
+/* Active Navigation Link */
+.gdkc-nav-link.active {
+    color: var(--gdkc-teal);
+}
+
+/* Underline Effect for Navigation Links */
+.gdkc-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--gdkc-teal);
+    transition: width var(--nav-transition);
+}
+
+.gdkc-nav-link:hover::after,
+.gdkc-nav-link.active::after {
+    width: 100%;
+}
+
+/* Contact Button in Navigation */
+.gdkc-nav-contact {
+    margin-left: 1rem;
+}
+
+/* Mobile Navigation Toggle */
+.gdkc-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.gdkc-nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--gdkc-blue);
+    margin: 5px 0;
+    transition: transform var(--nav-transition), opacity var(--nav-transition);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .gdkc-nav {
+        padding: 1rem;
+    }
+
+    .gdkc-nav-toggle {
+        display: block;
+        z-index: 101;
+    }
+
+    .gdkc-nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right var(--nav-transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+    }
+
+    .gdkc-nav.open .gdkc-nav-links {
+        right: 0;
+    }
+
+    /* Hamburger to X animation */
+    .gdkc-nav.open .gdkc-nav-toggle span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .gdkc-nav.open .gdkc-nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .gdkc-nav.open .gdkc-nav-toggle span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Overlay when mobile menu is open */
+    .gdkc-nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--nav-transition), visibility var(--nav-transition);
+        z-index: 99;
+    }
+
+    .gdkc-nav.open .gdkc-nav-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Dropdown Menu */
+.gdkc-nav-dropdown {
+    position: relative;
+}
+
+.gdkc-nav-dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity var(--nav-transition), visibility var(--nav-transition), transform var(--nav-transition);
+    z-index: 101;
+}
+
+.gdkc-nav-dropdown:hover .gdkc-nav-dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.gdkc-nav-dropdown-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--gdkc-blue);
+    text-decoration: none;
+    font-family: var(--font-heading-regular);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color var(--nav-transition), color var(--nav-transition);
+}
+
+.gdkc-nav-dropdown-link:hover {
+    background-color: var(--gdkc-soft-lilac);
+    color: var(--gdkc-blue-darkened);
+}
+
+/* Sticky Navigation */
+.gdkc-nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Transparent Navigation (for hero sections) */
+.gdkc-nav.transparent {
+    background-color: transparent;
+    box-shadow: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.gdkc-nav.transparent .gdkc-nav-link {
+    color: white;
+}
+
+.gdkc-nav.transparent .gdkc-nav-link:hover,
+.gdkc-nav.transparent .gdkc-nav-link.active {
+    color: var(--gdkc-teal);
+}
+
+.gdkc-nav.transparent .gdkc-nav-toggle span {
+    background-color: white;
+}
+
+/* Mega Menu */
+.gdkc-nav-mega {
+    position: static;
+}
+
+.gdkc-nav-mega-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity var(--nav-transition), visibility var(--nav-transition), transform var(--nav-transition);
+    z-index: 101;
+}
+
+.gdkc-nav-mega:hover .gdkc-nav-mega-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.gdkc-nav-mega-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.gdkc-nav-mega-title {
+    font-family: var(--font-heading-regular);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--gdkc-blue);
+    margin-bottom: 0.5rem;
+}
+
+.gdkc-nav-mega-link {
+    color: var(--gdkc-blue);
+    text-decoration: none;
+    font-family: var(--font-heading-regular);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color var(--nav-transition);
+}
+
+.gdkc-nav-mega-link:hover {
+    color: var(--gdkc-teal);
+}

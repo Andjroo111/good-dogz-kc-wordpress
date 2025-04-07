@@ -1,0 +1,280 @@
+/**
+ * Tabs Component
+ *
+ * A flexible tab system with different styles and configurations.
+ *
+ * Usage:
+ * <div class="gdkc-tabs">
+ *   <div class="gdkc-tabs-nav">
+ *     <button class="gdkc-tab active" data-tab="tab1">Tab 1</button>
+ *     <button class="gdkc-tab" data-tab="tab2">Tab 2</button>
+ *     <button class="gdkc-tab" data-tab="tab3">Tab 3</button>
+ *   </div>
+ *   <div class="gdkc-tabs-content">
+ *     <div id="tab1" class="gdkc-tab-panel active">Tab 1 content</div>
+ *     <div id="tab2" class="gdkc-tab-panel">Tab 2 content</div>
+ *     <div id="tab3" class="gdkc-tab-panel">Tab 3 content</div>
+ *   </div>
+ * </div>
+ *
+ * Styles:
+ * .gdkc-tabs--pills
+ * .gdkc-tabs--underline (default)
+ * .gdkc-tabs--contained
+ * .gdkc-tabs--vertical
+ */
+
+/* Base tab styles */
+.gdkc-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Tab navigation */
+.gdkc-tabs-nav {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.gdkc-tab {
+    padding: 0.75rem 1.25rem;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: #666;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.gdkc-tab:hover, 
+.gdkc-tab:focus {
+    color: #333;
+    outline: none;
+}
+
+.gdkc-tab.active {
+    color: #2c2977; /* Dark Blue brand color */
+    font-weight: 600;
+}
+
+/* Default underline style */
+.gdkc-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #2c2977; /* Dark Blue brand color */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.gdkc-tab.active::after {
+    transform: scaleX(1);
+}
+
+/* Tab content area */
+.gdkc-tabs-content {
+    margin-top: 1rem;
+}
+
+.gdkc-tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.gdkc-tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Pills style */
+.gdkc-tabs--pills .gdkc-tabs-nav {
+    border-bottom: none;
+    background-color: #f5f5f5;
+    padding: 0.25rem;
+    border-radius: 2rem;
+}
+
+.gdkc-tabs--pills .gdkc-tab {
+    border-radius: 2rem;
+    padding: 0.5rem 1.25rem;
+}
+
+.gdkc-tabs--pills .gdkc-tab::after {
+    display: none;
+}
+
+.gdkc-tabs--pills .gdkc-tab.active {
+    background-color: #2c2977; /* Dark Blue brand color */
+    color: white;
+}
+
+/* Contained style */
+.gdkc-tabs--contained .gdkc-tabs-nav {
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    background-color: #f9f9f9;
+    padding: 0;
+}
+
+.gdkc-tabs--contained .gdkc-tab {
+    padding: 0.75rem 1.5rem;
+    border-right: 1px solid #ddd;
+}
+
+.gdkc-tabs--contained .gdkc-tab:last-child {
+    border-right: none;
+}
+
+.gdkc-tabs--contained .gdkc-tab::after {
+    display: none;
+}
+
+.gdkc-tabs--contained .gdkc-tab.active {
+    background-color: white;
+    color: #2c2977; /* Dark Blue brand color */
+}
+
+.gdkc-tabs--contained .gdkc-tabs-content {
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 1.5rem;
+    margin-top: 0;
+}
+
+/* Vertical tabs */
+.gdkc-tabs--vertical {
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.gdkc-tabs--vertical .gdkc-tabs-nav {
+    flex-direction: column;
+    gap: 0.25rem;
+    border-bottom: none;
+    border-right: 1px solid #ddd;
+    padding-right: 0;
+    width: 200px;
+    min-width: 200px;
+}
+
+.gdkc-tabs--vertical .gdkc-tab {
+    text-align: left;
+    padding: 0.75rem 1rem;
+}
+
+.gdkc-tabs--vertical .gdkc-tab::after {
+    top: 0;
+    right: -1px;
+    bottom: auto;
+    left: auto;
+    width: 3px;
+    height: 100%;
+    transform: scaleY(0);
+}
+
+.gdkc-tabs--vertical .gdkc-tab.active::after {
+    transform: scaleY(1);
+}
+
+.gdkc-tabs--vertical .gdkc-tabs-content {
+    margin-top: 0;
+    margin-left: 1.5rem;
+    flex: 1;
+}
+
+/* Colors */
+.gdkc-tabs--primary .gdkc-tab.active {
+    color: #2c2977; /* Dark Blue brand color */
+}
+
+.gdkc-tabs--primary .gdkc-tab::after {
+    background-color: #2c2977; /* Dark Blue brand color */
+}
+
+.gdkc-tabs--primary.gdkc-tabs--pills .gdkc-tab.active {
+    background-color: #2c2977; /* Dark Blue brand color */
+}
+
+.gdkc-tabs--secondary .gdkc-tab.active {
+    color: #a08cff; /* Light Purple brand color */
+}
+
+.gdkc-tabs--secondary .gdkc-tab::after {
+    background-color: #a08cff; /* Light Purple brand color */
+}
+
+.gdkc-tabs--secondary.gdkc-tabs--pills .gdkc-tab.active {
+    background-color: #a08cff; /* Light Purple brand color */
+}
+
+.gdkc-tabs--accent .gdkc-tab.active {
+    color: #07edbe; /* Teal brand color */
+}
+
+.gdkc-tabs--accent .gdkc-tab::after {
+    background-color: #07edbe; /* Teal brand color */
+}
+
+.gdkc-tabs--accent.gdkc-tabs--pills .gdkc-tab.active {
+    background-color: #07edbe; /* Teal brand color */
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .gdkc-tabs--vertical {
+        flex-direction: column;
+    }
+    
+    .gdkc-tabs--vertical .gdkc-tabs-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 0;
+    }
+    
+    .gdkc-tabs--vertical .gdkc-tab {
+        padding: 0.75rem 1.25rem;
+    }
+    
+    .gdkc-tabs--vertical .gdkc-tab::after {
+        top: auto;
+        right: auto;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        transform: scaleX(0);
+    }
+    
+    .gdkc-tabs--vertical .gdkc-tab.active::after {
+        transform: scaleX(1);
+    }
+    
+    .gdkc-tabs--vertical .gdkc-tabs-content {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+    
+    .gdkc-tabs--pills .gdkc-tabs-nav {
+        flex-wrap: wrap;
+    }
+}

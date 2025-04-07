@@ -1,0 +1,167 @@
+/* 
+ * Training Programs Section Styles
+ */
+
+.programs-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.program-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.program-card.highlighted {
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.program-card.highlighted:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.program-card__header {
+    background-color: var(--gdkc-background-alt);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.program-card__header--blue {
+    background-color: var(--gdkc-primary);
+}
+
+.program-card__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--gdkc-text-primary);
+}
+
+.program-card__subtitle {
+    color: var(--gdkc-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.program-card__price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gdkc-text-primary);
+}
+
+.program-card__body {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+.program-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.program-feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--gdkc-text-secondary);
+}
+
+.program-feature:last-child {
+    margin-bottom: 0;
+}
+
+.program-feature i {
+    color: var(--gdkc-secondary);
+    margin-right: 0.75rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.program-card__footer {
+    padding: 2rem;
+    text-align: center;
+}
+
+.programs-note {
+    margin-top: 2rem;
+}
+
+.note-text {
+    color: var(--gdkc-text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Label for popular/recommended program */
+.program-card.highlighted .program-card__header:before {
+    content: 'Most Popular';
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: var(--gdkc-secondary);
+    color: var(--gdkc-text-dark);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsive */
+@media (max-width: 992px) {
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .program-card.highlighted {
+        grid-column: 1 / -1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .programs-section {
+        padding: 60px 0;
+    }
+    
+    .programs-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .program-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .program-card.highlighted {
+        transform: scale(1);
+    }
+    
+    .program-card.highlighted:hover {
+        transform: translateY(-10px);
+    }
+}

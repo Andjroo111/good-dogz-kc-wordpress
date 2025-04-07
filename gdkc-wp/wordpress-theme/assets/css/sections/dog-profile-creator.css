@@ -1,0 +1,334 @@
+/**
+ * Dog Profile Creator Component Styles
+ */
+
+.dog-profile-section {
+    padding: 4rem 0;
+    background-color: #f9f7fe;
+    position: relative;
+    overflow: hidden;
+}
+
+.dog-profile-section::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgba(7, 237, 190, 0.1);
+    top: -150px;
+    right: -150px;
+    z-index: 1;
+}
+
+.dog-profile-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.profile-steps::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0;
+    z-index: 1;
+}
+
+.profile-step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.profile-step.active {
+    background-color: #07edbe;
+    color: #2c2977;
+}
+
+.profile-step.completed {
+    background-color: #a08cff;
+    color: #ffffff;
+}
+
+.profile-step-content {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.profile-step-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Form Elements */
+.profile-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.profile-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c2977;
+    font-weight: 500;
+}
+
+.profile-input,
+.profile-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-input:focus,
+.profile-select:focus {
+    border-color: #07edbe;
+    box-shadow: 0 0 0 3px rgba(7, 237, 190, 0.2);
+    outline: none;
+}
+
+.profile-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.profile-radio-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-radio-item input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+.dog-image-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 1rem auto;
+    display: block;
+    background-color: #f5f5f5;
+    border: 2px dashed #e0e0e0;
+    position: relative;
+}
+
+.dog-image-preview.has-image {
+    border: 2px solid #07edbe;
+}
+
+.upload-button {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.profile-result {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-result.active {
+    display: block;
+}
+
+.dog-profile-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.dog-profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.dog-profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+    border: 3px solid #07edbe;
+}
+
+.dog-profile-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #2c2977;
+}
+
+.dog-profile-breed {
+    font-size: 1rem;
+    color: #666;
+    margin: 0.25rem 0 0;
+}
+
+.dog-profile-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dog-profile-detail {
+    padding: 0.75rem;
+    background-color: #f9f7fe;
+    border-radius: 5px;
+}
+
+.detail-label {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0;
+}
+
+.detail-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c2977;
+    margin: 0.25rem 0 0;
+}
+
+.training-recommendations {
+    margin-top: 2rem;
+}
+
+.recommendation-title {
+    font-size: 1.25rem;
+    color: #2c2977;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.recommendation-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #07edbe;
+    border-radius: 50%;
+}
+
+.recommendation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recommendation-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.recommendation-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.recommendation-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #a08cff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.recommendation-text {
+    flex: 1;
+}
+
+.profile-save-button {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .dog-profile-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-steps {
+        display: none;
+    }
+    
+    .profile-step-content {
+        padding: 1.5rem;
+    }
+    
+    .dog-profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .dog-profile-image {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}

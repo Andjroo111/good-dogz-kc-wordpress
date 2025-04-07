@@ -1,0 +1,52 @@
+/**
+ * Good Dogz KC - Brand Colors
+ * 
+ * This file contains the brand colors for the Good Dogz KC WordPress child theme.
+ * Reference: /assets/branding/colors/GDKC_BrandColors_2024.pdf
+ */
+
+:root {
+    /* Primary Brand Colors */
+    --gdkc-blue: #2c2977;
+    --gdkc-blue-darkened: #251f6a;
+    --gdkc-light-purple: #a08cff;
+    --gdkc-light-purple-darkened: #8a78e0;
+    --gdkc-teal: #07edbe;
+    --gdkc-teal-darkened: #06d4aa;
+    
+    /* Additional Brand Colors */
+    --gdkc-medium-blue: #477ed6;
+    --gdkc-medium-blue-darkened: #3a6ac0;
+    --gdkc-light-blue: #a0c7ff;
+    --gdkc-light-blue-darkened: #8ab3f0;
+    --gdkc-soft-lilac: #f1e0ff;
+    --gdkc-soft-lilac-darkened: #e5d0f5;
+    --gdkc-pink: #FF69B4;
+    --gdkc-pink-darkened: #FF50A5;
+    --gdkc-black: #000000;
+    --gdkc-white: #ffffff;
+    
+    /* Neutral Colors */
+    --gdkc-light-gray: #f5f5f5;
+    --gdkc-gray: #e0e0e0;
+    --gdkc-medium-gray: #9e9e9e;
+    --gdkc-dark-gray: #333333;
+    
+    /* Gradients - Primary */
+    --gdkc-blue-bg: linear-gradient(to right, var(--gdkc-blue), var(--gdkc-blue-darkened));
+    --gdkc-blue-bg-darkened: linear-gradient(to right, var(--gdkc-blue-darkened), #1f1a58);
+    --gdkc-light-purple-bg: linear-gradient(to right, var(--gdkc-light-purple), var(--gdkc-light-purple-darkened));
+    --gdkc-light-purple-bg-darkened: linear-gradient(to right, var(--gdkc-light-purple-darkened), #7566cc);
+    --gdkc-teal-bg: linear-gradient(to right, var(--gdkc-teal), var(--gdkc-teal-darkened));
+    --gdkc-teal-bg-darkened: linear-gradient(to right, var(--gdkc-teal-darkened), #05bb96);
+    
+    /* Gradients - Additional */
+    --gdkc-medium-blue-bg: linear-gradient(to right, var(--gdkc-medium-blue), var(--gdkc-medium-blue-darkened));
+    --gdkc-medium-blue-bg-darkened: linear-gradient(to right, var(--gdkc-medium-blue-darkened), #3056a0);
+    --gdkc-light-blue-bg: linear-gradient(to right, var(--gdkc-light-blue), var(--gdkc-light-blue-darkened));
+    --gdkc-light-blue-bg-darkened: linear-gradient(to right, var(--gdkc-light-blue-darkened), #75a0e0);
+    --gdkc-soft-lilac-bg: linear-gradient(to right, var(--gdkc-soft-lilac), var(--gdkc-soft-lilac-darkened));
+    --gdkc-soft-lilac-bg-darkened: linear-gradient(to right, var(--gdkc-soft-lilac-darkened), #d9c0eb);
+    --gdkc-pink-bg: linear-gradient(to right, var(--gdkc-pink), var(--gdkc-pink-darkened));
+    --gdkc-pink-bg-darkened: linear-gradient(to right, var(--gdkc-pink-darkened), #FF8A9E);
+}

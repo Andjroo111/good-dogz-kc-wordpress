@@ -1,0 +1,58 @@
+/*
+Theme Name: Good Dogz KC - Twenty Twenty-Four Child
+Theme URI: https://gooddogzkc.com/
+Description: Child theme for Twenty Twenty-Four, customized for Good Dogz KC
+Author: Claude
+Author URI: https://gooddogzkc.com/
+Template: twentytwentyfour
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: gooddogzkc-twentytwentyfour-child
+*/
+
+/* Import parent theme styles */
+@import url('../twentytwentyfour/style.css');
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+:root {
+  --color-dark-blue: #2c2977;
+  --color-light-purple: #a08cff;
+  --color-teal: #07edbe;
+  --color-medium-blue: #477ed6;
+  --color-light-blue: #a0c7ff;
+  --color-soft-lilac: #f1e0ff;
+  --color-black: #000000;
+  --color-white: #ffffff;
+}
+
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+body {
+  font-family: 'Proxima Soft', sans-serif;
+  color: var(--color-black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cera Round Pro', sans-serif;
+  color: var(--color-dark-blue);
+}
+
+h1 {
+  font-weight: 900; /* Black weight */
+}
+
+h2 {
+  font-weight: 400; /* Regular weight */
+}
+
+h3 {
+  font-weight: 500; /* Medium weight */
+}
+
+/* ==========================================================================
+   Custom Styles - To be populated during migration
+   ========================================================================== */

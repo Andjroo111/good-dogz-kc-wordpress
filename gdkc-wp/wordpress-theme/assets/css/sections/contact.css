@@ -1,0 +1,262 @@
+/* 
+ * Contact Section Styles
+ */
+
+.contact-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-content {
+    padding-right: 2rem;
+}
+
+.contact-info {
+    margin: 3rem 0;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.contact-icon {
+    width: 48px;
+    height: 48px;
+    background-color: var(--gdkc-primary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    color: var(--gdkc-primary);
+    font-size: 1.25rem;
+}
+
+.contact-text h3 {
+    font-size: 1.125rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--gdkc-text-primary);
+}
+
+.contact-text a,
+.contact-text address {
+    color: var(--gdkc-text-secondary);
+    font-style: normal;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-text a:hover {
+    color: var(--gdkc-primary);
+}
+
+.contact-social h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.youtube {
+    background-color: #ff0000;
+}
+
+.tiktok {
+    background-color: #000000;
+}
+
+.contact-form-container {
+    position: relative;
+}
+
+.form-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--gdkc-text-primary);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--gdkc-primary);
+    outline: none;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form button[type="submit"] {
+    background-color: var(--gdkc-primary);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: var(--gdkc-primary-dark);
+}
+
+/* For Contact Form 7 compatibility */
+.form-card .wpcf7-form p {
+    margin-bottom: 1rem;
+}
+
+.form-card .wpcf7-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--gdkc-text-primary);
+}
+
+.form-card .wpcf7-form input[type="text"],
+.form-card .wpcf7-form input[type="email"],
+.form-card .wpcf7-form input[type="tel"],
+.form-card .wpcf7-form select,
+.form-card .wpcf7-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-card .wpcf7-form input[type="submit"] {
+    background-color: var(--gdkc-primary);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.form-card .wpcf7-form input[type="submit"]:hover {
+    background-color: var(--gdkc-primary-dark);
+}
+
+.form-card .wpcf7-form .wpcf7-not-valid-tip {
+    color: #dc3232;
+    font-size: 0.875rem;
+}
+
+.form-card .wpcf7-form .wpcf7-response-output {
+    margin: 1rem 0 0;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+}
+
+.contact-shape {
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background-color: var(--gdkc-background-alt);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-content {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 60px 0;
+    }
+    
+    .form-card {
+        padding: 1.5rem;
+    }
+}

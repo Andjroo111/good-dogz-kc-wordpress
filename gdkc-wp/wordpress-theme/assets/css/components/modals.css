@@ -1,0 +1,227 @@
+/**
+ * Modal Component
+ *
+ * A flexible modal system for displaying dialogs, forms, and other content.
+ * Supports various sizes and customization options.
+ *
+ * Usage:
+ * <button data-modal-open="example-modal">Open Modal</button>
+ *
+ * <div id="example-modal" class="gdkc-modal">
+ *   <div class="gdkc-modal-dialog">
+ *     <div class="gdkc-modal-content">
+ *       <div class="gdkc-modal-header">
+ *         <h4 class="gdkc-modal-title">Modal Title</h4>
+ *         <button type="button" class="gdkc-modal-close" data-modal-close>&times;</button>
+ *       </div>
+ *       <div class="gdkc-modal-body">
+ *         Modal content goes here...
+ *       </div>
+ *       <div class="gdkc-modal-footer">
+ *         <button type="button" class="gdkc-button" data-modal-close>Close</button>
+ *         <button type="button" class="gdkc-button primary">Save changes</button>
+ *       </div>
+ *     </div>
+ *   </div>
+ * </div>
+ *
+ * Sizes:
+ * .gdkc-modal-dialog--sm
+ * .gdkc-modal-dialog--md (default)
+ * .gdkc-modal-dialog--lg
+ * .gdkc-modal-dialog--xl
+ * .gdkc-modal-dialog--full
+ */
+
+/* Modal container */
+.gdkc-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.gdkc-modal.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal dialog */
+.gdkc-modal-dialog {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px; /* Default size (medium) */
+    max-height: calc(100vh - 2rem);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.gdkc-modal.is-active .gdkc-modal-dialog {
+    transform: translateY(0);
+}
+
+/* Dialog sizes */
+.gdkc-modal-dialog--sm {
+    max-width: 400px;
+}
+
+.gdkc-modal-dialog--md {
+    max-width: 600px;
+}
+
+.gdkc-modal-dialog--lg {
+    max-width: 800px;
+}
+
+.gdkc-modal-dialog--xl {
+    max-width: 1000px;
+}
+
+.gdkc-modal-dialog--full {
+    max-width: 90%;
+    height: 90%;
+}
+
+/* Modal content */
+.gdkc-modal-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Modal header */
+.gdkc-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.gdkc-modal-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.gdkc-modal-close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s ease;
+}
+
+.gdkc-modal-close:hover,
+.gdkc-modal-close:focus {
+    color: #333;
+    outline: none;
+}
+
+/* Modal body */
+.gdkc-modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Modal footer */
+.gdkc-modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/* Modal with image header */
+.gdkc-modal-image-header {
+    overflow: hidden;
+    position: relative;
+    max-height: 250px;
+}
+
+.gdkc-modal-image-header img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Centered modal */
+.gdkc-modal--centered .gdkc-modal-body {
+    text-align: center;
+}
+
+.gdkc-modal--centered .gdkc-modal-footer {
+    justify-content: center;
+}
+
+/* Animation variations */
+.gdkc-modal--fade .gdkc-modal-dialog {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gdkc-modal.is-active.gdkc-modal--fade .gdkc-modal-dialog {
+    opacity: 1;
+}
+
+.gdkc-modal--zoom .gdkc-modal-dialog {
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.gdkc-modal.is-active.gdkc-modal--zoom .gdkc-modal-dialog {
+    transform: scale(1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .gdkc-modal-dialog {
+        max-width: 95%;
+    }
+    
+    .gdkc-modal-dialog--sm,
+    .gdkc-modal-dialog--md,
+    .gdkc-modal-dialog--lg,
+    .gdkc-modal-dialog--xl {
+        max-width: 95%;
+    }
+    
+    .gdkc-modal-dialog--full {
+        max-width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+    
+    .gdkc-modal-footer {
+        flex-direction: column;
+    }
+    
+    .gdkc-modal-footer .gdkc-button {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+}

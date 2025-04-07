@@ -1,0 +1,188 @@
+/* 
+ * Lead Magnet Section Styles
+ */
+
+.lead-magnet-section {
+    padding: 80px 0;
+    background-color: var(--gdkc-primary);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.lead-magnet-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.lead-magnet-content {
+    padding: 2rem;
+}
+
+.lead-text {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.benefit-container {
+    margin-bottom: 2rem;
+}
+
+.benefit-item {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+.benefit-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.benefit-icon i {
+    color: var(--gdkc-secondary);
+    font-size: 1.125rem;
+}
+
+.benefit-text {
+    font-size: 1.125rem;
+    color: #ffffff;
+}
+
+.lead-magnet-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.lead-magnet-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: perspective(1000px) rotateY(-10deg);
+    transition: transform 0.3s ease;
+}
+
+.lead-magnet-image img:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.lead-magnet-form {
+    margin-top: 2rem;
+}
+
+.lead-magnet-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.lead-magnet-form input[type="text"],
+.lead-magnet-form input[type="email"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.lead-magnet-form input[type="text"]::placeholder,
+.lead-magnet-form input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.lead-magnet-form button[type="submit"] {
+    background-color: var(--gdkc-secondary);
+    color: var(--gdkc-text-dark);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.lead-magnet-form button[type="submit"]:hover {
+    background-color: var(--gdkc-secondary-light);
+}
+
+.lead-magnet-shape {
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* For Contact Form 7 compatibility */
+.lead-magnet-section .wpcf7-form {
+    color: #ffffff;
+}
+
+.lead-magnet-section .wpcf7-form input[type="text"],
+.lead-magnet-section .wpcf7-form input[type="email"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.lead-magnet-section .wpcf7-form input[type="submit"] {
+    background-color: var(--gdkc-secondary);
+    color: var(--gdkc-text-dark);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.lead-magnet-section .wpcf7-form input[type="submit"]:hover {
+    background-color: var(--gdkc-secondary-light);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .lead-magnet-section {
+        padding: 60px 0;
+    }
+    
+    .lead-magnet-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .lead-magnet-image {
+        order: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .lead-magnet-content {
+        order: 1;
+        padding: 1rem 0;
+    }
+}

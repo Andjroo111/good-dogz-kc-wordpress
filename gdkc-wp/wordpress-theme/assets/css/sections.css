@@ -1,0 +1,31 @@
+/**
+ * Good Dogz KC - Homepage Sections Styles
+ */
+
+/* Import common section styles */
+@import "sections/common.css";
+
+/* Import individual section styles */
+@import "sections/hero.css";
+@import "sections/social-proof.css";
+@import "sections/transformation.css";
+@import "sections/lead-magnet.css";
+@import "sections/problem-solution.css";
+@import "sections/testimonials.css";
+@import "sections/programs.css";
+@import "sections/faq.css";
+@import "sections/contact.css";
+@import "sections/bento-box.css";
+@import "sections/timeline.css";
+@import "sections/stats-counter.css";
+@import "sections/success-gallery.css";
+@import "sections/service-map.css";
+@import "sections/behavior-quiz.css";
+@import "sections/sticky-cta.css";
+
+/* Import new advanced components */
+@import "sections/dog-profile-creator.css";
+@import "sections/cost-calculator.css";
+@import "sections/training-progress.css";
+@import "sections/live-calendar.css";
+@import "sections/breed-advice.css";

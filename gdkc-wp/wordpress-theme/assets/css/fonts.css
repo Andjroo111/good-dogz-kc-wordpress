@@ -1,0 +1,33 @@
+/* Good Dogz KC - Font Definitions */
+
+/* Cera Round Pro - Black */
+@font-face {
+    font-family: 'Cera Round Pro';
+    src: url('../fonts/Cera Round-Black-Web.woff2') format('woff2'),
+         url('../fonts/Cera Round-Black-Web.woff') format('woff'),
+         url('../fonts/Cera Round-Black-Web.ttf') format('truetype'),
+         url('../fonts/Cera Round-Black-Desktop.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Cera Round Pro - Regular */
+@font-face {
+    font-family: 'Cera Round Pro';
+    src: url('../fonts/Cera Round-Regular-Web.woff2') format('woff2'),
+         url('../fonts/Cera Round-Regular-Web.woff') format('woff'),
+         url('../fonts/Cera Round-Regular-Web.ttf') format('truetype'),
+         url('../fonts/Cera Round-Regular-Desktop.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Proxima Soft - loaded from Adobe Typekit 
+   URL: https://use.typekit.net/roc7klc.css
+   Weights available:
+   - 400 (Regular)
+   - 500 (Medium)
+   - 700 (Bold)
+*/

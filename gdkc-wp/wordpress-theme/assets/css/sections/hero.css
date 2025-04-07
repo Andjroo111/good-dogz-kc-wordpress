@@ -1,0 +1,206 @@
+/* 
+ * Hero Section Styles
+ */
+
+.hero-section {
+    position: relative;
+    padding: 100px 0;
+    background-color: var(--gdkc-background-alt);
+    overflow: hidden;
+    min-height: 600px; /* Ensure enough height for lava animation */
+}
+
+/* Lava Animation Styles */
+.hero-section.gdkc-lava-container {
+    background-color: #0a0a2a; /* Default background for lava animation */
+    color: #fff; /* Ensure text is visible on dark background */
+}
+
+/* Ensure content is above the lava animation */
+.hero-section.gdkc-lava-container .hero-content {
+    position: relative;
+    z-index: 10; /* Higher z-index to appear above lava animation */
+}
+
+/* Adjust text colors for better visibility on lava background */
+.hero-section.gdkc-lava-container .hero-title,
+.hero-section.gdkc-lava-container .hero-subtitle {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow for better readability */
+}
+
+/* Ensure buttons are visible on lava background */
+.hero-section.gdkc-lava-container .gdkc-button.outline {
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #fff;
+}
+
+.hero-section.gdkc-lava-container .gdkc-button.outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hero-text {
+    padding-right: 2rem;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 1rem;
+    color: var(--gdkc-text-primary);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--gdkc-text-secondary);
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-visual {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-visual .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    background-color: var(--gdkc-primary);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hero-visual .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-visual .video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 2rem;
+    background-color: var(--gdkc-background-dark);
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.hero-visual .video-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--gdkc-primary);
+}
+
+.hero-scrolldown {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.scrolldown-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--gdkc-text-secondary);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.scrolldown-link:hover {
+    color: var(--gdkc-primary);
+}
+
+.scrolldown-link span {
+    margin-right: 0.5rem;
+}
+
+.scrolldown-link i {
+    font-size: 0.875rem;
+    animation: bounce 2s infinite;
+}
+
+.hero-shape {
+    position: absolute;
+    z-index: 1;
+}
+
+.hero-shape-1 {
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(var(--gdkc-primary-rgb), 0.1);
+    border-radius: 50%;
+}
+
+.hero-shape-2 {
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(var(--gdkc-secondary-rgb), 0.05);
+    border-radius: 50%;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-text {
+        order: 1;
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    .hero-visual {
+        order: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-cta {
+        justify-content: center;
+    }
+}

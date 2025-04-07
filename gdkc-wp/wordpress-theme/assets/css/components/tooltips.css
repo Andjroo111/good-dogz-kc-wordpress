@@ -1,0 +1,260 @@
+/**
+ * Tooltips Component
+ *
+ * A lightweight tooltips component for displaying additional information
+ * on hover or focus. Supports various positions and themes.
+ *
+ * Usage:
+ * <span class="gdkc-tooltip" data-tooltip="This is a tooltip">Hover me</span>
+ * 
+ * Positions:
+ * .gdkc-tooltip--top (default)
+ * .gdkc-tooltip--bottom
+ * .gdkc-tooltip--left
+ * .gdkc-tooltip--right
+ *
+ * Themes:
+ * .gdkc-tooltip--dark (default)
+ * .gdkc-tooltip--light
+ * .gdkc-tooltip--primary
+ * .gdkc-tooltip--secondary
+ */
+
+/* Base tooltip styles */
+.gdkc-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Tooltip container */
+.gdkc-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    z-index: 100;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
+    pointer-events: none;
+    max-width: 250px;
+    text-align: center;
+    transform: translateY(-10px);
+}
+
+/* Arrow styles */
+.gdkc-tooltip::before {
+    content: "";
+    position: absolute;
+    z-index: 101;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+/* Show on hover or focus */
+.gdkc-tooltip:hover::after,
+.gdkc-tooltip:hover::before,
+.gdkc-tooltip:focus::after,
+.gdkc-tooltip:focus::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Position: top (default) */
+.gdkc-tooltip::after,
+.gdkc-tooltip--top::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    margin-bottom: 10px;
+}
+
+.gdkc-tooltip:hover::after,
+.gdkc-tooltip--top:hover::after,
+.gdkc-tooltip:focus::after,
+.gdkc-tooltip--top:focus::after {
+    transform: translateX(-50%) translateY(0);
+}
+
+.gdkc-tooltip::before,
+.gdkc-tooltip--top::before {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px 5px 0 5px;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* Position: bottom */
+.gdkc-tooltip--bottom::after {
+    top: 100%;
+    left: 50%;
+    bottom: auto;
+    transform: translateX(-50%) translateY(10px);
+    margin-top: 10px;
+}
+
+.gdkc-tooltip--bottom:hover::after,
+.gdkc-tooltip--bottom:focus::after {
+    transform: translateX(-50%) translateY(0);
+}
+
+.gdkc-tooltip--bottom::before {
+    top: 100%;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 5px 5px 5px;
+    border-color: transparent transparent #333 transparent;
+}
+
+/* Position: left */
+.gdkc-tooltip--left::after {
+    top: 50%;
+    right: 100%;
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%) translateX(-10px);
+    margin-right: 10px;
+}
+
+.gdkc-tooltip--left:hover::after,
+.gdkc-tooltip--left:focus::after {
+    transform: translateY(-50%) translateX(0);
+}
+
+.gdkc-tooltip--left::before {
+    top: 50%;
+    right: 100%;
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%);
+    border-width: 5px 0 5px 5px;
+    border-color: transparent transparent transparent #333;
+}
+
+/* Position: right */
+.gdkc-tooltip--right::after {
+    top: 50%;
+    left: 100%;
+    bottom: auto;
+    transform: translateY(-50%) translateX(10px);
+    margin-left: 10px;
+}
+
+.gdkc-tooltip--right:hover::after,
+.gdkc-tooltip--right:focus::after {
+    transform: translateY(-50%) translateX(0);
+}
+
+.gdkc-tooltip--right::before {
+    top: 50%;
+    left: 100%;
+    bottom: auto;
+    transform: translateY(-50%);
+    border-width: 5px 5px 5px 0;
+    border-color: transparent #333 transparent transparent;
+}
+
+/* Themes */
+/* Dark (default) */
+.gdkc-tooltip::after,
+.gdkc-tooltip--dark::after {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Light theme */
+.gdkc-tooltip--light::after {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.gdkc-tooltip--light::before {
+    border-color: #fff transparent transparent transparent;
+}
+
+.gdkc-tooltip--light.gdkc-tooltip--bottom::before {
+    border-color: transparent transparent #fff transparent;
+}
+
+.gdkc-tooltip--light.gdkc-tooltip--left::before {
+    border-color: transparent transparent transparent #fff;
+}
+
+.gdkc-tooltip--light.gdkc-tooltip--right::before {
+    border-color: transparent #fff transparent transparent;
+}
+
+/* Primary theme */
+.gdkc-tooltip--primary::after {
+    background-color: #2c2977; /* Dark Blue brand color */
+    color: #fff;
+}
+
+.gdkc-tooltip--primary::before {
+    border-color: #2c2977 transparent transparent transparent;
+}
+
+.gdkc-tooltip--primary.gdkc-tooltip--bottom::before {
+    border-color: transparent transparent #2c2977 transparent;
+}
+
+.gdkc-tooltip--primary.gdkc-tooltip--left::before {
+    border-color: transparent transparent transparent #2c2977;
+}
+
+.gdkc-tooltip--primary.gdkc-tooltip--right::before {
+    border-color: transparent #2c2977 transparent transparent;
+}
+
+/* Secondary theme */
+.gdkc-tooltip--secondary::after {
+    background-color: #a08cff; /* Light Purple brand color */
+    color: #333;
+}
+
+.gdkc-tooltip--secondary::before {
+    border-color: #a08cff transparent transparent transparent;
+}
+
+.gdkc-tooltip--secondary.gdkc-tooltip--bottom::before {
+    border-color: transparent transparent #a08cff transparent;
+}
+
+.gdkc-tooltip--secondary.gdkc-tooltip--left::before {
+    border-color: transparent transparent transparent #a08cff;
+}
+
+.gdkc-tooltip--secondary.gdkc-tooltip--right::before {
+    border-color: transparent #a08cff transparent transparent;
+}
+
+/* Multiline tooltip with wider max-width */
+.gdkc-tooltip--multiline::after {
+    white-space: normal;
+    max-width: 250px;
+    text-align: left;
+}
+
+/* Size variations */
+.gdkc-tooltip--sm::after {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.gdkc-tooltip--lg::after {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+}

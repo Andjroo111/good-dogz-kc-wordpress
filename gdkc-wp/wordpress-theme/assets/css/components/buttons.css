@@ -1,0 +1,193 @@
+/**
+ * Button Component Styles
+ *
+ * @package Good_Dogz_KC
+ * @subpackage Twenty_Twenty_Four_Child
+ * @since 1.0.0
+ */
+
+/* Button Variables */
+:root {
+    /* Colors */
+    --gdkc-blue: #2c2977;
+    --gdkc-blue-darkened: #251f6a;
+    --gdkc-light-purple: #a08cff;
+    --gdkc-light-purple-darkened: #8a78e0;
+    --gdkc-teal: #07edbe;
+    --gdkc-teal-darkened: #06d4aa;
+    --gdkc-medium-blue: #477ed6;
+    --gdkc-medium-blue-darkened: #3a6ac0;
+    --gdkc-light-blue: #a0c7ff;
+    --gdkc-light-blue-darkened: #8ab3f0;
+    --gdkc-soft-lilac: #f1e0ff;
+    --gdkc-soft-lilac-darkened: #e5d0f5;
+    --gdkc-yellow: #F0E68C;
+    --gdkc-yellow-darkened: #E6DC7D;
+    --gdkc-pink: #FF69B4;
+    --gdkc-pink-darkened: #FF50A5;
+    
+    /* Spacing */
+    --radius-md: 0.5rem;
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+}
+
+/* Base Button Styles */
+.gdkc-button {
+    position: relative;
+    color: var(--gdkc-blue);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    border: none;
+    overflow: hidden;
+    font-family: var(--font-heading-regular);
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.5;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Button Label */
+.gdkc-button span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Primary Button */
+.gdkc-button.primary {
+    background: radial-gradient(
+        circle at 50% 30%, var(--gdkc-light-purple) 0%, transparent 50%),
+        radial-gradient(circle at 75% 65%, var(--gdkc-medium-blue) 0%, transparent 55%),
+        radial-gradient(circle at 25% 70%, var(--gdkc-teal) 0%, transparent 45%);
+    background-size: 200% 200%;
+    animation: meshGradient 8s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+    filter: drop-shadow(0 0 8px rgba(7, 237, 190, 0.35));
+}
+
+.gdkc-button.primary:hover {
+    box-shadow: 0 0 50px rgba(255, 105, 180, 0.85);
+    transform: translateY(-2px);
+}
+
+/* Secondary Button */
+.gdkc-button.secondary {
+    background-color: var(--gdkc-light-blue);
+    box-shadow: 0 0 15px rgba(160, 199, 255, 0.5);
+}
+
+.gdkc-button.secondary:hover {
+    background-color: var(--gdkc-light-blue-darkened);
+    box-shadow: 0 0 25px rgba(160, 199, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+/* Tertiary Button */
+.gdkc-button.tertiary {
+    background-color: var(--gdkc-soft-lilac);
+    box-shadow: 0 0 10px rgba(241, 224, 255, 0.4);
+}
+
+.gdkc-button.tertiary:hover {
+    background-color: var(--gdkc-soft-lilac-darkened);
+    box-shadow: 0 0 20px rgba(241, 224, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Accent Button */
+.gdkc-button.accent {
+    background-color: var(--gdkc-teal);
+    box-shadow: 0 0 15px rgba(7, 237, 190, 0.5);
+}
+
+.gdkc-button.accent:hover {
+    background-color: var(--gdkc-teal-darkened);
+    box-shadow: 0 0 25px rgba(7, 237, 190, 0.7);
+    transform: translateY(-2px);
+}
+
+/* Button Sizes */
+.gdkc-button.small {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.gdkc-button.large {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.125rem;
+}
+
+/* Button Animations */
+@keyframes meshGradient {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Button with Top Highlight Effect */
+.gdkc-button.with-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, 
+        rgba(255,255,255,0.25) 0%, 
+        rgba(255,255,255,0.1) 40%,
+        rgba(255,255,255,0) 100%
+    );
+    border-radius: var(--radius-md);
+    z-index: 0;
+}
+
+/* Button with Wavy Effect */
+.gdkc-button.with-wave::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(
+            ellipse at 20% 40%, 
+            rgba(255,255,255,0.15) 0%, 
+            rgba(255,255,255,0) 60%
+        ),
+        radial-gradient(
+            ellipse at 60% 80%, 
+            rgba(255,255,255,0.15) 0%, 
+            rgba(255,255,255,0) 50%
+        );
+    border-radius: var(--radius-md);
+    opacity: 1;
+    z-index: 0;
+    animation: subtleMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes subtleMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 10% 10%; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gdkc-button {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.9rem;
+    }
+    
+    .gdkc-button.large {
+        padding: 0.4rem 1.2rem;
+        font-size: 1rem;
+    }
+}
