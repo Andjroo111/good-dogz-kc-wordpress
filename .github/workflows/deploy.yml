@@ -1,10 +1,14 @@
 name: Deploy WordPress Theme
 
+# Note: This workflow is set up to deploy directly from local development to production.
+# Local WordPress installation serves as the development/staging environment,
+# and changes are pushed to GitHub, then deployed to production.
+
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push events but only for specified branches
+  # Triggers the workflow on push events but only for the main branch
   push:
-    branches: [ main, staging ]
+    branches: [ main ]
     paths:
       - 'gdkc-wp/wordpress-theme/**'
   
@@ -17,55 +21,7 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains different jobs for staging and production
-  deploy-staging:
-    name: Deploy to Staging
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/staging'
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.1'
-          extensions: mbstring, intl
-          
-      - name: Install Composer dependencies
-        run: |
-          if [ -f "${{ env.THEME_PATH }}/composer.json" ]; then
-            cd ${{ env.THEME_PATH }}
-            composer install --no-dev --optimize-autoloader
-          fi
-          
-      - name: Install NPM dependencies and build assets
-        run: |
-          if [ -f "${{ env.THEME_PATH }}/package.json" ]; then
-            cd ${{ env.THEME_PATH }}
-            npm ci
-            npm run build
-          fi
-      
-      - name: Deploy to Staging via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.STAGING_SERVER }}
-          username: ${{ secrets.STAGING_USERNAME }}
-          password: ${{ secrets.STAGING_PASSWORD }}
-          local-dir: ${{ env.THEME_PATH }}/
-          server-dir: ${{ secrets.STAGING_SERVER_DIR }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.env*
-            **/tests/**
-            **/docs/**
-            .DS_Store
-            **/vendor/**
-
+  # This workflow deploys to production from the main branch
   deploy-production:
     name: Deploy to Production
     runs-on: ubuntu-latest
